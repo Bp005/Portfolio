@@ -5,6 +5,7 @@ function App() {
   const [theme, setTheme] = useState('dark');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formStatus, setFormStatus] = useState(''); // 'sending', 'success', 'error'
   const [showGame, setShowGame] = useState(false);
   const [gameScore, setGameScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
@@ -23,9 +24,35 @@ function App() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    alert('Message sent! (Frontend only - no backend connected)');
-    setFormData({ name: '', email: '', message: '' });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus('sending');
+
+    try {
+      const response = await fetch('https://formspree.io/f/mzdznnny', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setFormStatus(''), 5000);
+      } else {
+        setFormStatus('error');
+        setTimeout(() => setFormStatus(''), 5000);
+      }
+    } catch (error) {
+      setFormStatus('error');
+      setTimeout(() => setFormStatus(''), 5000);
+    }
   };
 
   const startGame = () => {
@@ -345,22 +372,68 @@ function App() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Get In Touch</h2>
           <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'} shadow-xl`}>
+            
+            {formStatus === 'success' && (
+              <div className="mb-6 p-4 bg-green-500/20 border border-green-500 rounded-lg text-green-400">
+                ✅ Message sent successfully! I'll get back to you soon.
+              </div>
+            )}
+            
+            {formStatus === 'error' && (
+              <div className="mb-6 p-4 bg-red-500/20 border border-red-500 rounded-lg text-red-400">
+                ❌ Oops! Something went wrong. Please try again or email me directly.
+              </div>
+            )}
+
             <div className="mb-6">
               <label className="block mb-2 font-semibold">Name</label>
-              <input type="text" name="name" value={formData.name} onChange={handleFormChange} className={`w-full px-4 py-3 rounded-lg ${theme === 'dark' ? 'bg-gray-900 border-gray-700' : 'bg-gray-50 border-gray-300'} border-2 focus:border-blue-500 outline-none`} placeholder="Your Name" />
+              <input 
+                type="text" 
+                name="name" 
+                value={formData.name} 
+                onChange={handleFormChange}
+                required
+                disabled={formStatus === 'sending'}
+                className={`w-full px-4 py-3 rounded-lg ${theme === 'dark' ? 'bg-gray-900 border-gray-700' : 'bg-gray-50 border-gray-300'} border-2 focus:border-blue-500 outline-none ${formStatus === 'sending' ? 'opacity-50 cursor-not-allowed' : ''}`} 
+                placeholder="Your Name" 
+              />
             </div>
             <div className="mb-6">
               <label className="block mb-2 font-semibold">Email</label>
-              <input type="email" name="email" value={formData.email} onChange={handleFormChange} className={`w-full px-4 py-3 rounded-lg ${theme === 'dark' ? 'bg-gray-900 border-gray-700' : 'bg-gray-50 border-gray-300'} border-2 focus:border-blue-500 outline-none`} placeholder="your.email@example.com" />
+              <input 
+                type="email" 
+                name="email" 
+                value={formData.email} 
+                onChange={handleFormChange}
+                required
+                disabled={formStatus === 'sending'}
+                className={`w-full px-4 py-3 rounded-lg ${theme === 'dark' ? 'bg-gray-900 border-gray-700' : 'bg-gray-50 border-gray-300'} border-2 focus:border-blue-500 outline-none ${formStatus === 'sending' ? 'opacity-50 cursor-not-allowed' : ''}`} 
+                placeholder="your.email@example.com" 
+              />
             </div>
             <div className="mb-6">
               <label className="block mb-2 font-semibold">Message</label>
-              <textarea name="message" value={formData.message} onChange={handleFormChange} rows="5" className={`w-full px-4 py-3 rounded-lg ${theme === 'dark' ? 'bg-gray-900 border-gray-700' : 'bg-gray-50 border-gray-300'} border-2 focus:border-blue-500 outline-none`} placeholder="Your message..." />
+              <textarea 
+                name="message" 
+                value={formData.message} 
+                onChange={handleFormChange}
+                required
+                disabled={formStatus === 'sending'}
+                rows="5" 
+                className={`w-full px-4 py-3 rounded-lg ${theme === 'dark' ? 'bg-gray-900 border-gray-700' : 'bg-gray-50 border-gray-300'} border-2 focus:border-blue-500 outline-none ${formStatus === 'sending' ? 'opacity-50 cursor-not-allowed' : ''}`} 
+                placeholder="Your message..." 
+              />
             </div>
-            <button onClick={handleSubmit} className="w-full px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all">
-              Send Message
+            <button 
+              onClick={handleSubmit}
+              disabled={formStatus === 'sending'}
+              className={`w-full px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all ${formStatus === 'sending' ? 'opacity-50 cursor-not-allowed' : ''}`}
+            >
+              {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
             </button>
-            <p className="text-sm text-gray-500 text-center mt-4">(Frontend only)</p>
+            <p className="text-sm text-gray-500 text-center mt-4">
+              📧 Messages go directly to bijaypdl10@gmail.com
+            </p>
           </div>
         </div>
       </section>
