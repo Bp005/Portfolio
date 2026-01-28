@@ -138,7 +138,13 @@ function App() {
       { name: 'jupyter Notebook', icon: '📓' },
       { name: 'Anaconda navigator', icon: '🧪' }
     ],
-    cloud: [{ name: 'AWS Cloud Fundamentals', icon: '☁️' }]
+    cloud: [
+    { 
+      name: 'AWS Cloud Fundamentals', 
+      icon: '☁️', 
+      certificate: 'https://www.credly.com/badges/2bdf0322-5cb0-4ad6-b61f-3b2305666d9d/public_url' 
+      
+    }]
   };
 
   const projects = [
