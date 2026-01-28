@@ -115,20 +115,30 @@ function App() {
       { name: 'Java', icon: '☕' },
       { name: 'Spring Boot', icon: '🍃' },
       { name: 'Spring Security', icon: '🔒' },
-      { name: 'REST APIs', icon: '🔌' }
+      { name: 'REST APIs', icon: '🔌' },
+      { name: 'Python', icon: '🐍' },
+      { name: 'docker', icon: '🐳' },
+      { name : 'FastAPI', icon: '⚡' },
+      {name: 'JWT', icon: '🔑' },
+      {name: 'Machine Learning', icon: '🤖' },
+      {name: 'data processing', icon: '📊' }
+
     ],
     database: [
       { name: 'MySQL', icon: '🗄️' },
       { name: 'JPA', icon: '📊' },
-      { name: 'Hibernate', icon: '🔄' }
+      { name: 'Hibernate', icon: '🔄' },
+      {name: 'mongoDB', icon: '🍃' }
     ],
     tools: [
       { name: 'Git', icon: '📚' },
       { name: 'GitHub', icon: '🐙' },
       { name: 'Postman', icon: '📮' },
-      { name: 'Maven', icon: '🔨' }
+      { name: 'Maven', icon: '🔨' },
+      { name: 'jupyter Notebook', icon: '📓' },
+      { name: 'Anaconda navigator', icon: '🧪' }
     ],
-    cloud: [{ name: 'AWS Basics', icon: '☁️' }]
+    cloud: [{ name: 'AWS Cloud Fundamentals', icon: '☁️' }]
   };
 
   const projects = [
@@ -142,8 +152,8 @@ function App() {
         'Role-based access: Doctor / Patient / Admin',
         'RESTful API design'
       ],
-      github: '#',
-      demo: null
+      github: 'https://github.com/Bp005/Hospital-Management-System.git',
+      
     },
     {
       title: 'Automated IELTS Essay Evaluator',
@@ -155,8 +165,19 @@ function App() {
         'Academic major project',
         'Automated scoring and feedback generation'
       ],
-      github: '#',
-      demo: null
+      github: 'https://github.com/Bp005/Automated-IELTS-Essay-evaluator.git',
+    },
+    {
+      title: 'Email based spam detector',
+      description: 'This is a Project for Email Spam Detection using Machine Learning techniques to classify emails as spam or not spam.',
+      tech: ['Python', 'Machine Learning', 'NLP', 'Scikit-learn'],
+      details: [
+        'Implemented various ML algorithms for spam detection',
+        'Data preprocessing and feature extraction using NLP techniques',
+        'Achieved high accuracy in email classification',
+        'Provided a user-friendly interface for email input and spam detection'
+      ],
+      github: 'https://github.com/Bp005/Email-Based-Spam-Detection.git',
     }
   ];
 
