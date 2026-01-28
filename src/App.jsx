@@ -334,7 +334,7 @@ function App() {
                     rel="noopener noreferrer"
                     className="hover:underline text-blue-400"
                   >
-                    AWS Cloud Fundamentals Certified
+                    AWS Cloud Foundations  Certified
                   </a>
                 </p>
               </div>
