@@ -313,20 +313,32 @@ function App() {
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-purple-500">🎯 Focus Areas</h3>
                 <ul className="text-gray-400 space-y-2">
+                  <li>• ETL processing pipeline Development</li>
                   <li>• Java & Spring Boot Development</li>
                   <li>• REST API Design</li>
                   <li>• JWT Authentication</li>
                   <li>• Database Management</li>
+
                 </ul>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-pink-500">🚀 Currently Learning</h3>
-                <p className="text-gray-400">Spring Security, Microservices, Cloud Deployment</p>
+                <p className="text-gray-400">Spring Security, Microservices, Cloud Deployment, kafka, Pipeline processing</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-3 text-green-500">📜 Certifications</h3>
-                <p className="text-gray-400">AWS Cloud Fundamentals Certified</p>
+                <p className="text-gray-400">
+                  <a 
+                    href="https://www.credly.com/badges/2bdf0322-5cb0-4ad6-b61f-3b2305666d9d/public_url" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:underline text-blue-400"
+                  >
+                    AWS Cloud Fundamentals Certified
+                  </a>
+                </p>
               </div>
+
             </div>
           </div>
         </div>
