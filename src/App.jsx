@@ -266,11 +266,10 @@ function App() {
           <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
             Bijay Poudel
           </h1>
-          <div className="text-xl md:text-2xl text-gray-400 mb-2">Backend / Java Developer</div>
+          <div className="text-xl md:text-2xl text-gray-400 mb-2">Backend / Java Developer, Data Enthusiast</div>
           <div className="text-lg text-gray-500">📍 Nepal</div>
           <p className="text-lg md:text-xl my-8 text-gray-300 max-w-2xl mx-auto">
-            Computer Engineering student and aspiring backend developer. Building Spring Boot APIs and learning real-world backend systems.
-          </p>
+              Aspiring backend developer and data enthusiast with hands-on experience in building Spring Boot APIs. Passionate about designing scalable backend systems and exploring data-driven solutions.          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => scrollToSection('projects')} className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all">
               View Projects
@@ -299,7 +298,6 @@ function App() {
           <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">About Me</h2>
           <div className={`p-8 rounded-2xl ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-50'} shadow-xl`}>
             <p className="text-lg leading-relaxed mb-6">
-              I'm a Computer Engineering student with a strong passion for backend development and building robust APIs. My journey focuses on creating efficient, scalable backend systems.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
@@ -378,10 +376,10 @@ function App() {
                     <Github size={18} />
                     GitHub
                   </a>
-                  <button disabled={!project.demo} className={`flex items-center gap-2 px-4 py-2 rounded-lg ${project.demo ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-600 opacity-50 cursor-not-allowed'}`}>
+                  {/* <button disabled={!project.demo} className={`flex items-center gap-2 px-4 py-2 rounded-lg ${project.demo ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-600 opacity-50 cursor-not-allowed'}`}>
                     <ExternalLink size={18} />
                     {project.demo ? 'Live Demo' : 'No Demo'}
-                  </button>
+                  </button> */}
                 </div>
               </div>
             ))}
