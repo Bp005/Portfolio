@@ -336,6 +336,16 @@ function App() {
                   >
                     AWS Cloud Foundations  Certified
                   </a>
+                </p> 
+                <p className="text-gray-400">
+                  <a 
+                    href="https://broadwayinfosys.com/certificate-verification-code/eyJpdiI6Im9UY3pWWUFwbkllZ2hLWVRLcGhvakE9PSIsInZhbHVlIjoiL1NxTHMraDNyNWx1QUEvTU1XSWR4dz09IiwibWFjIjoiMzY0ZDM1NWQxZjc3NTg3ZjM5ZGM2OTgzMWU5YjMyYWM5N2IzNWMxNTcxNGI5YTM2NDcwNjAyNWQzMGM5OTBjOCIsInRhZyI6IiJ9" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:underline text-blue-400"
+                  >
+                    Java/Backend developer
+                  </a>
                 </p>
               </div>
 
